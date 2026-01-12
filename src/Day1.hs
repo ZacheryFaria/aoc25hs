@@ -11,9 +11,6 @@ where
 import Debug.Trace (trace, traceShowId)
 import Prelude hiding (Left, Right)
 
--- >>> triple 5
-triple l = l * 3
-
 data Direction = Left | Right deriving (Show)
 
 data Command = Command Direction Int deriving (Show)
