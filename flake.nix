@@ -8,7 +8,7 @@
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
       hPkgs =
-        pkgs.haskell.packages."ghc9102";
+        pkgs.haskell.packages."ghc9103";
 
       myDevTools = [
         hPkgs.ghc # GHC compiler in the desired version (will be available on PATH)
