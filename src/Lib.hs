@@ -1,5 +1,6 @@
 module Lib
   ( loadDataset,
+    charToInt,
     wordsWhen,
     wordSplit,
   )
@@ -16,6 +17,9 @@ wordsWhen p s = case dropWhile p s of
 
 wordSplit :: Char -> String -> [String]
 wordSplit c s = wordsWhen (== c) s
+
+charToInt :: Char -> Int
+charToInt c = fromEnum c - fromEnum '0'
 
 loadDataset :: String -> IO String
 loadDataset file = withFile file ReadMode $ \handler -> hGetContents' handler
