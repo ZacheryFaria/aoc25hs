@@ -1,6 +1,7 @@
 module Lib
   ( loadDataset,
     charToInt,
+    deleteNth,
     wordsWhen,
     wordSplit,
   )
@@ -20,6 +21,12 @@ wordSplit c s = wordsWhen (== c) s
 
 charToInt :: Char -> Int
 charToInt c = fromEnum c - fromEnum '0'
+
+deleteNth :: Int -> [a] -> [a]
+deleteNth n xs = before ++ afterTail
+  where
+    (before, after) = splitAt n xs
+    afterTail = drop 1 after
 
 loadDataset :: String -> IO String
 loadDataset file = withFile file ReadMode $ \handler -> hGetContents' handler
