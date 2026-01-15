@@ -3,6 +3,7 @@ module Main (main) where
 import Day1
 import Day2
 import Day3
+import Day4
 import Lib
 
 solve_day1 = do
@@ -20,6 +21,11 @@ solve_day3 = do
   let result = Day3.solve d
    in putStrLn $ show result
 
+solve_day4 = do
+  d <- loadDataset "day4_full.txt"
+  let result = Day4.solve d
+   in putStrLn $ show result
+
 main :: IO ()
 main = do
-  solve_day3
+  solve_day4
