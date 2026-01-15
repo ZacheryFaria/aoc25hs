@@ -30,3 +30,14 @@ deleteNth n xs = before ++ afterTail
 
 loadDataset :: String -> IO String
 loadDataset file = withFile file ReadMode $ \handler -> hGetContents' handler
+
+setAt :: Int -> a -> [a] -> [a]
+setAt i newVal list = take i list ++ [newVal] ++ drop (i + 1) list
+
+-- >>> setAt2 1 1 'd' ["000", "111"]
+-- ["000","1d1"]
+setAt2 :: Int -> Int -> a -> [[a]] -> [[a]]
+setAt2 row col newVal list = setAt row updatedRow list
+  where
+    (rowVal : _) = drop row list
+    updatedRow = setAt col newVal rowVal
